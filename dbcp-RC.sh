@@ -28,7 +28,7 @@
 # -----------------------------------------------------------------------------
 # Set script variables
 version=2.4.0
-repo_path=~/.m2/repository/org/apache/commons/commons-dbcp2/${version}
+repo_path=~/.m2/repository/org/apache/commons/commons-dbcp3/${version}
 release_path=~/dbcp-rc  #checkout of https://dist.apache.org/repos/dist/dev/commons/dbcp
 #
 # Delete any locally installed artifacts from previous runs

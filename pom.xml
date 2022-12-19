@@ -25,7 +25,7 @@
     <version>55</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>commons-dbcp2</artifactId>
+  <artifactId>commons-dbcp3</artifactId>
   <version>2.10.0-SNAPSHOT</version>
   <name>Apache Commons DBCP</name>
 
@@ -307,7 +307,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <commons.componentid>dbcp</commons.componentid>
     <commons.rc.version>RC1</commons.rc.version>
-    <commons.module.name>org.apache.commons.dbcp2</commons.module.name>
+    <commons.module.name>org.apache.commons.dbcp3</commons.module.name>
     
     <commons.release.version>2.10.0</commons.release.version>
     <commons.release.desc>for JDBC 4.2 on Java 8</commons.release.desc>
@@ -418,7 +418,7 @@
           <argLine>${surefire.argline}</argLine>
           <systemPropertyVariables>
             <!-- Ensure that logging messages can be inspected -->
-            <org.apache.commons.logging.Log>org.apache.commons.dbcp2.StackMessageLog</org.apache.commons.logging.Log>
+            <org.apache.commons.logging.Log>org.apache.commons.dbcp3.StackMessageLog</org.apache.commons.logging.Log>
           </systemPropertyVariables>
           <excludes>
             <!-- Test support files -->

@@ -33,43 +33,43 @@
   </Match>
   <!-- Tests aren't run with a security manager configured -->
   <Match>
-    <Class name="org.apache.commons.dbcp2.TestBasicDataSource"/>
+    <Class name="org.apache.commons.dbcp3.TestBasicDataSource"/>
     <Method name="setUp"/>
     <Bug pattern="DP_CREATE_CLASSLOADER_INSIDE_DO_PRIVILEGED"/>
   </Match>
   <!-- Sleep is intentional and short -->
   <Match>
-    <Class name="org.apache.commons.dbcp2.TestBasicDataSource"/>
+    <Class name="org.apache.commons.dbcp3.TestBasicDataSource"/>
     <Method name="testCreateDataSourceCleanupEvictor"/>
     <Bug pattern="SWL_SLEEP_WITH_LOCK_HELD"/>
   </Match>
   <!-- Write to static is intentional -->
   <Match>
-    <Class name="org.apache.commons.dbcp2.TestBasicDataSource.TesterConnRequestCountDriver"/>
+    <Class name="org.apache.commons.dbcp3.TestBasicDataSource.TesterConnRequestCountDriver"/>
     <Method name="connect"/>
     <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD "/>
   </Match>
   <!-- Not worth coding around for test code -->
   <Match>
-    <Class name="org.apache.commons.dbcp2.TesterResultSet"/>
+    <Class name="org.apache.commons.dbcp3.TesterResultSet"/>
     <Method name="&lt;init&gt;"/>
     <Bug pattern="EI_EXPOSE_REP2"/>
   </Match>
   <Match>
     <!-- False positive - method does not declare return as @Nonnull -->
-    <Class name="org.apache.commons.dbcp2.DelegatingConnection" />
+    <Class name="org.apache.commons.dbcp3.DelegatingConnection" />
     <Method name="prepareStatement" />
     <Bug pattern="NP_NONNULL_RETURN_VIOLATION" />
   </Match>
   <Match>
     <!-- MUST keep for binary compatibility until 3.0.0 -->
-    <Class name="org.apache.commons.dbcp2.PoolingDriver" />
+    <Class name="org.apache.commons.dbcp3.PoolingDriver" />
     <Field name="pools" />
     <Bug pattern="MS_MUTABLE_COLLECTION_PKGPROTECT" />
   </Match>
   <Match>
     <!-- Depreacted -->
-    <Class name="org.apache.commons.dbcp2.Utils" />
+    <Class name="org.apache.commons.dbcp3.Utils" />
     <Field name="DISCONNECTION_SQL_CODES" />
     <Bug pattern="MS_MUTABLE_COLLECTION_PKGPROTECT" />
   </Match>

@@ -54,7 +54,7 @@
 
   // Construct BasicDataSource
   BasicDataSource bds = new BasicDataSource();
-  bds.setDriverClassName("org.apache.commons.dbcp2.TesterDriver");
+  bds.setDriverClassName("org.apache.commons.dbcp3.TesterDriver");
   bds.setUrl("jdbc:apache:commons:testdriver");
   bds.setUsername("userName");
   bds.setPassword("password");
@@ -79,17 +79,17 @@
   InitialContext ic = new InitialContext();
 
   // Construct DriverAdapterCPDS reference
-  Reference cpdsRef = new Reference("org.apache.commons.dbcp2.cpdsadapter.DriverAdapterCPDS",
-    "org.apache.commons.dbcp2.cpdsadapter.DriverAdapterCPDS", null);
-  cpdsRef.add(new StringRefAddr("driver", "org.apache.commons.dbcp2.TesterDriver"));
+  Reference cpdsRef = new Reference("org.apache.commons.dbcp3.cpdsadapter.DriverAdapterCPDS",
+    "org.apache.commons.dbcp3.cpdsadapter.DriverAdapterCPDS", null);
+  cpdsRef.add(new StringRefAddr("driver", "org.apache.commons.dbcp3.TesterDriver"));
   cpdsRef.add(new StringRefAddr("url", "jdbc:apache:commons:testdriver"));
   cpdsRef.add(new StringRefAddr("user", "foo"));
   cpdsRef.add(new StringRefAddr("password", "bar"));
   ic.rebind("jdbc/cpds", cpdsRef);
      
   // Construct PerUserPoolDataSource reference
-  Reference ref = new Reference("org.apache.commons.dbcp2.datasources.PerUserPoolDataSource",
-    "org.apache.commons.dbcp2.datasources.PerUserPoolDataSourceFactory", null);
+  Reference ref = new Reference("org.apache.commons.dbcp3.datasources.PerUserPoolDataSource",
+    "org.apache.commons.dbcp3.datasources.PerUserPoolDataSourceFactory", null);
   ref.add(new StringRefAddr("dataSourceName", "jdbc/cpds"));
   ref.add(new StringRefAddr("defaultMaxTotal", "100"));
   ref.add(new StringRefAddr("defaultMaxIdle", "30"));

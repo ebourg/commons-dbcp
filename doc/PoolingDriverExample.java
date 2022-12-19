@@ -21,11 +21,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.apache.commons.dbcp2.ConnectionFactory;
-import org.apache.commons.dbcp2.DriverManagerConnectionFactory;
-import org.apache.commons.dbcp2.PoolableConnection;
-import org.apache.commons.dbcp2.PoolableConnectionFactory;
-import org.apache.commons.dbcp2.PoolingDriver;
+import org.apache.commons.dbcp3.ConnectionFactory;
+import org.apache.commons.dbcp3.DriverManagerConnectionFactory;
+import org.apache.commons.dbcp3.PoolableConnection;
+import org.apache.commons.dbcp3.PoolableConnectionFactory;
+import org.apache.commons.dbcp3.PoolingDriver;
 //
 // Here are the dbcp-specific classes.
 // Note that they are only used in the setupDriver
@@ -179,7 +179,7 @@ public class PoolingDriverExample {
         //
         // Finally, we create the PoolingDriver itself...
         //
-        Class.forName("org.apache.commons.dbcp2.PoolingDriver");
+        Class.forName("org.apache.commons.dbcp3.PoolingDriver");
         PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
 
         //

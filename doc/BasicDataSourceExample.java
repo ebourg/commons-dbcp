@@ -28,7 +28,7 @@ import javax.sql.DataSource;
 // method. In normal use, your classes interact
 // only with the standard JDBC API
 //
-import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.commons.dbcp3.BasicDataSource;
 
 //
 // Here's a simple example of how to use the BasicDataSource.
@@ -60,7 +60,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 //
 // For example:
 //  java -Djdbc.drivers=org.h2.Driver \
-//       -classpath commons-pool2-2.3.jar:commons-dbcp2-2.1.jar:commons-logging-1.2.jar:h2-1.3.152.jar:. \
+//       -classpath commons-pool3-3.0.0.jar:commons-dbcp3-3.0.0.jar:commons-logging-1.2.jar:h2-1.3.152.jar:. \
 //       BasicDataSourceExample \
 //       "jdbc:h2:~/test" \
 //       "SELECT 1"
