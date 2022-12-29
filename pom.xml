@@ -217,9 +217,9 @@
 
     <!-- For managed connections -->
     <dependency>
-      <groupId>org.apache.geronimo.specs</groupId>
-      <artifactId>geronimo-jta_1.1_spec</artifactId>
-      <version>1.1.1</version>
+      <groupId>jakarta.transaction</groupId>
+      <artifactId>jakarta.transaction-api</artifactId>
+      <version>2.0.1</version>
       <optional>true</optional>
     </dependency>
 
@@ -240,9 +240,10 @@
 
     <!-- for testing of managed connections -->
     <dependency>
-      <groupId>org.apache.geronimo.modules</groupId>
+      <groupId>org.apache.geronimo.components</groupId>
       <artifactId>geronimo-transaction</artifactId>
-      <version>2.2.1</version>
+      <version>3.1.5</version>
+      <classifier>jakarta</classifier>
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -269,20 +270,13 @@
     </dependency>
     <dependency>
       <groupId>org.jboss.narayana.jta</groupId>
-      <artifactId>narayana-jta</artifactId>
-      <!-- Versions >= 5.13.0 require Java 11 -->
-      <version>5.12.7.Final</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.spec.javax.transaction</groupId>
-      <artifactId>jboss-transaction-api_1.2_spec</artifactId>
-      <version>1.1.1.Final</version>
+      <artifactId>narayana-jta-jakarta</artifactId>
+      <version>5.13.1.Final</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.jboss</groupId>
-      <artifactId>jboss-transaction-spi</artifactId>
+      <artifactId>jboss-transaction-spi-jakarta</artifactId>
       <version>7.6.1.Final</version>
       <exclusions>
         <exclusion>
@@ -480,9 +474,9 @@
           </parameter>
           <dependencies>
             <dependency>
-              <groupId>org.apache.geronimo.specs</groupId>
-              <artifactId>geronimo-jta_1.1_spec</artifactId>
-              <version>1.1.1</version>
+              <groupId>jakarta.transaction</groupId>
+              <artifactId>jakarta.transaction-api</artifactId>
+              <version>2.0.1</version>
             </dependency>
           </dependencies>
         </configuration>
@@ -548,6 +542,27 @@
       <properties>
         <surefire.argline>--add-exports=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED</surefire.argline>
       </properties>
+    </profile>
+    <profile>
+      <id>jdk8</id>
+      <activation>
+        <jdk>1.8</jdk>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                <testExcludes>
+                  <testExclude>**/managed/*.java</testExclude>
+                </testExcludes>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
     </profile>
   </profiles>
 </project>

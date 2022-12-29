@@ -32,8 +32,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.transaction.Synchronization;
-import javax.transaction.Transaction;
+import jakarta.transaction.Synchronization;
+import jakarta.transaction.Transaction;
 
 import org.apache.commons.dbcp3.DelegatingConnection;
 import org.junit.jupiter.api.AfterEach;
